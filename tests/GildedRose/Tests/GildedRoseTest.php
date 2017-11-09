@@ -47,6 +47,14 @@ class Test extends TestCase
     $this->assertEquals($this->item->quality, 9);
   }
   
+  public function testUpdateOrdinaryItemQualitySellIn0()
+  {
+    $this->item->name = 'Ordinary Item';
+    $this->item->sellIn = 0;
+    $this->app->UpdateOrdinaryItem($this->item);
+    $this->assertEquals($this->item->quality, 8);
+  }
+  
   public function testUpdateAgedBrieSellIn()
   {
     $this->item->name = 'Aged Brie';
@@ -121,6 +129,14 @@ class Test extends TestCase
     $this->assertEquals($this->item->quality, 13);
   }
   
+  public function testUpdateBackstagePassesQualitySellIn0()
+  {
+    $this->item->name = 'Backstage passes to a TAFKAL80ETC concert';
+    $this->item->sellIn = 0;
+    $this->app->UpdateBackstagePasses($this->item);
+    $this->assertEquals($this->item->quality, 0);
+  }
+  
   public function testUpdateBackstagePassesQualityDoesNotExceed50()
   {
     $this->item->name = 'Backstage passes to a TAFKAL80ETC concert';
@@ -141,6 +157,14 @@ class Test extends TestCase
     $this->item->name = 'Conjured Item';
     $this->app->UpdateConJuredItem($this->item);
     $this->assertEquals($this->item->quality, 8);
+  }
+  
+  public function testUpdateConjuredItemQualitySellIn0()
+  {
+    $this->item->name = 'Conjured Item';
+    $this->item->sellIn = 0;
+    $this->app->UpdateConJuredItem($this->item);
+    $this->assertEquals($this->item->quality, 6);
   }
   
   public function testItemTypeOrdinary()
@@ -165,6 +189,12 @@ class Test extends TestCase
   {
     $this->item->name = 'Backstage passes';
     $this->assertEquals( $this->app->getItemType($this->item), 'BACKSTAGE PASSES');
+  }
+  
+  public function testItemTypeConjured()
+  {
+    $this->item->name = 'Conjured';
+    $this->assertEquals( $this->app->getItemType($this->item), 'CONJURED');
   }
 
 }

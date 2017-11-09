@@ -95,6 +95,9 @@ class Program
                 case 'BACKSTAGE PASSES': 
                     $this->UpdateBackstagePasses($item);
                     break;
+                case 'CONJURED': 
+                    $this->UpdateConjuredItem($item);
+                    break;
             }
         }
     }
@@ -164,7 +167,7 @@ class Program
     
     public function getItemType($item)
     {
-        $types = array( 'AGED BRIE', 'SULFURAS', 'BACKSTAGE PASSES' );
+        $types = array( 'AGED BRIE', 'SULFURAS', 'BACKSTAGE PASSES', 'CONJURED' );
         foreach ($types as $type) {
             if (strpos(strtoupper($item->name), strtoupper($type))  !== false) {
                 return $type;  
