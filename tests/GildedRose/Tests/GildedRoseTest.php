@@ -36,14 +36,14 @@ class Test extends TestCase
   public function testUpdateOrdinaryItemSellIn()
   {
     $this->item->name = 'Ordinary Item';
-    $this->app->UpdateOrdinaryItemQuality($this->item);
+    $this->app->UpdateOrdinaryItem($this->item);
     $this->assertEquals($this->item->sellIn, 9);
   }
 
   public function testUpdateOrdinaryItemQuality()
   {
     $this->item->name = 'Ordinary Item';
-    $this->app->UpdateOrdinaryItemQuality($this->item);
+    $this->app->UpdateOrdinaryItem($this->item);
     $this->assertEquals($this->item->quality, 9);
   }
   
