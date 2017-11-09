@@ -138,4 +138,17 @@ class Program
         $item->sellIn = $item->sellIn - 1;
         return true;
     }
+    
+    public function UpdateAgedBrie($item)
+    {
+        if ($item->quality < 50) {
+            if ($item->sellIn > 0) {
+                $item->quality = $item->quality + 1;
+            } else if ($item->sellIn <=0) {
+                $item->quality = $item->quality + 2;
+            }
+        }
+        $item->sellIn = $item->sellIn - 1;
+        return true;
+    }
 }

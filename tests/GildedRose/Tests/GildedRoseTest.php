@@ -46,27 +46,35 @@ class Test extends TestCase
     $this->app->UpdateOrdinaryItemQuality($this->item);
     $this->assertEquals($this->item->quality, 9);
   }
-
-  public function testUpdateQualityEffectOnAgedBrieQuality1()
+  
+  public function testUpdateAgedBrieSellIn()
   {
     $this->item->name = 'Aged Brie';
-    $this->app->UpdateQuality();
+    $this->app->UpdateAgedBrie($this->item);
+    $this->assertEquals($this->item->sellIn, 9);
+  }
+
+  public function testUpdateAgedBrieQualitySellIn10()
+  {
+    $this->item->name = 'Aged Brie';
+    $this->app->UpdateAgedBrie($this->item);
     $this->assertEquals($this->item->quality, 11);
   }
 
-  public function testUpdateQualityEffectOnAgedBrieQuality2()
+  public function testUpdateAgedBrieQualitySellIn0()
   {
     $this->item->name = 'Aged Brie';
     $this->item->sellIn = 0;
-    $this->app->UpdateQuality();
+    $this->app->UpdateAgedBrie($this->item);
     $this->assertEquals($this->item->quality, 12);
   }
   
-  public function testUpdateQualityEffectOnAgedBrieSellIn()
+  public function testUpdateAgedBrieQualityDoesNotExceed50()
   {
     $this->item->name = 'Aged Brie';
-    $this->app->UpdateQuality();
-    $this->assertEquals($this->item->sellIn, 9);
+    $this->item->quality = 50;
+    $this->app->UpdateAgedBrie($this->item);
+    $this->assertEquals($this->item->quality, 50);
   }
   
   public function testUpdateQualityEffectOnSulfurasQuality()
