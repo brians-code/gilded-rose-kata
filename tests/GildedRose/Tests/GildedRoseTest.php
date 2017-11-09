@@ -129,6 +129,20 @@ class Test extends TestCase
     $this->assertEquals($this->item->quality, 50);
   }
   
+  public function testUpdateConjuredItemSellIn()
+  {
+    $this->item->name = 'Conjured Item';
+    $this->app->UpdateConJuredItem($this->item);
+    $this->assertEquals($this->item->sellIn, 9);
+  }
+  
+  public function testUpdateConjuredItemQuality()
+  {
+    $this->item->name = 'Conjured Item';
+    $this->app->UpdateConJuredItem($this->item);
+    $this->assertEquals($this->item->quality, 8);
+  }
+  
   public function testItemTypeOrdinary()
   {
     $this->item->name = 'Test Item';
