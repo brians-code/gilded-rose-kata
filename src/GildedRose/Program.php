@@ -131,4 +131,9 @@ class Program
             }
         }
     }
+    
+    public function UpdateOrdinaryItemQuality($item)
+    {
+        return ($item->quality = $item->quality-1);
+    }
 }

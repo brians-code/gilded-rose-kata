@@ -33,10 +33,10 @@ class Test extends TestCase
     $this->assertInstanceOf(Program::class, $this->app);
   }
 
-  public function testUpdateQualityEffectOnOrdinaryItemQuality()
+  public function testUpdateOrdinaryItemQuality()
   {
     $this->item->name = 'Ordinary Item';
-    $this->app->UpdateQuality();
+    $this->app->UpdateOrdinaryItemQuality($this->item);
     $this->assertEquals($this->item->quality, 9);
   }
   
