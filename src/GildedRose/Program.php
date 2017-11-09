@@ -83,10 +83,18 @@ class Program
     {
         foreach ($this->items as $item) {
             switch ($this->getItemType($item)) {
-                case 'ORDINARY': $this->UpdateOrdinaryItem($item);
-                case 'AGED BRIE': $this->UpdateAgedBrie($item);
-                case 'SULFURAS': $this->UpdateSulfuras($item);
-                case 'BACKSTAGE PASSES': $this->UpdateBackstagePasses($item);
+                case 'ORDINARY': 
+                    $this->UpdateOrdinaryItem($item);
+                    break;
+                case 'AGED BRIE': 
+                    $this->UpdateAgedBrie($item);
+                    break;
+                case 'SULFURAS': 
+                    $this->UpdateSulfuras($item);
+                    break;
+                case 'BACKSTAGE PASSES': 
+                    $this->UpdateBackstagePasses($item);
+                    break;
             }
         }
     }
