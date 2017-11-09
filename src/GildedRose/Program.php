@@ -134,6 +134,8 @@ class Program
     
     public function UpdateOrdinaryItemQuality($item)
     {
-        return ($item->quality = $item->quality-1);
+        $item->quality = $item->quality - 1;
+        $item->sellIn = $item->sellIn - 1;
+        return true;
     }
 }

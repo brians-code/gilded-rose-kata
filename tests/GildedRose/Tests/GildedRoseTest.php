@@ -33,18 +33,18 @@ class Test extends TestCase
     $this->assertInstanceOf(Program::class, $this->app);
   }
 
+  public function testUpdateOrdinaryItemSellIn()
+  {
+    $this->item->name = 'Ordinary Item';
+    $this->app->UpdateOrdinaryItemQuality($this->item);
+    $this->assertEquals($this->item->sellIn, 9);
+  }
+
   public function testUpdateOrdinaryItemQuality()
   {
     $this->item->name = 'Ordinary Item';
     $this->app->UpdateOrdinaryItemQuality($this->item);
     $this->assertEquals($this->item->quality, 9);
-  }
-  
-  public function testUpdateQualityEffectOnOrdinaryItemSellIn()
-  {
-    $this->item->name = 'Ordinary Item';
-    $this->app->UpdateQuality();
-    $this->assertEquals($this->item->sellIn, 9);
   }
 
   public function testUpdateQualityEffectOnAgedBrieQuality1()
@@ -53,7 +53,7 @@ class Test extends TestCase
     $this->app->UpdateQuality();
     $this->assertEquals($this->item->quality, 11);
   }
-  
+
   public function testUpdateQualityEffectOnAgedBrieQuality2()
   {
     $this->item->name = 'Aged Brie';
