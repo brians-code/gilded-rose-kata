@@ -151,4 +151,9 @@ class Program
         $item->sellIn = $item->sellIn - 1;
         return true;
     }
+    
+    public function UpdateSulfuras($item)
+    {
+        return true;
+    }
 }

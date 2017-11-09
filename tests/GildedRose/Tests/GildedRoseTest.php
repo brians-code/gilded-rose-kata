@@ -77,18 +77,18 @@ class Test extends TestCase
     $this->assertEquals($this->item->quality, 50);
   }
   
-  public function testUpdateQualityEffectOnSulfurasQuality()
+  public function testUpdateSulfurasSellIn()
   {
     $this->item->name = 'Sulfuras, Hand of Ragnaros';
-    $this->app->UpdateQuality();
-    $this->assertEquals($this->item->quality, 10);
+    $this->app->UpdateSulfuras($this->item);
+    $this->assertEquals($this->item->sellIn, 10);
   }
   
-  public function testUpdateQualityEffectOnSulfurasSellIn()
+  public function testUpdateSulfurasQuality()
   {
     $this->item->name = 'Sulfuras, Hand of Ragnaros';
-    $this->app->UpdateQuality();
-    $this->assertEquals($this->item->sellIn, 10);
+    $this->app->UpdateSulfuras($this->item);
+    $this->assertEquals($this->item->quality, 10);
   }
   
   public function testUpdateQualityEffectOnBackstagePassesQuality1()
