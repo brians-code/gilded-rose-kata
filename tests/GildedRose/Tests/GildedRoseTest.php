@@ -91,34 +91,42 @@ class Test extends TestCase
     $this->assertEquals($this->item->quality, 10);
   }
   
-  public function testUpdateQualityEffectOnBackstagePassesQuality1()
+  public function testUpdateBackstagePassesSellIn()
+  {
+    $this->item->name = 'Backstage passes to a TAFKAL80ETC concert';
+    $this->app->UpdateBackstagePasses($this->item);
+    $this->assertEquals($this->item->sellIn, 9);
+  }
+  
+  public function testUpdateBackstagePassesQualitySellIn11()
   {
     $this->item->name = 'Backstage passes to a TAFKAL80ETC concert';
     $this->item->sellIn = 11;
-    $this->app->UpdateQuality();
+    $this->app->UpdateBackstagePasses($this->item);
     $this->assertEquals($this->item->quality, 11);
   }
   
-  public function testUpdateQualityEffectOnBackstagePassesQuality2()
+  public function testUpdateBackstagePassesQualitySellIn10()
   {
     $this->item->name = 'Backstage passes to a TAFKAL80ETC concert';
-    $this->app->UpdateQuality();
+    $this->app->UpdateBackstagePasses($this->item);
     $this->assertEquals($this->item->quality, 12);
   }
   
-  public function testUpdateQualityEffectOnBackstagePassesQuality3()
+  public function testUpdateBackstagePassesQualitySellIn5()
   {
     $this->item->name = 'Backstage passes to a TAFKAL80ETC concert';
     $this->item->sellIn = 5;
-    $this->app->UpdateQuality();
+    $this->app->UpdateBackstagePasses($this->item);
     $this->assertEquals($this->item->quality, 13);
   }
   
-  public function testUpdateQualityEffectOnBackstagePassesSellIn()
+  public function testUpdateBackstagePassesQualityDoesNotExceed50()
   {
     $this->item->name = 'Backstage passes to a TAFKAL80ETC concert';
-    $this->app->UpdateQuality();
-    $this->assertEquals($this->item->sellIn, 9);
+    $this->item->quality = 50;
+    $this->app->UpdateBackstagePasses($this->item);
+    $this->assertEquals($this->item->quality, 50);
   }
 
 }
