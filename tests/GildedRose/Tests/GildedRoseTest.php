@@ -128,5 +128,29 @@ class Test extends TestCase
     $this->app->UpdateBackstagePasses($this->item);
     $this->assertEquals($this->item->quality, 50);
   }
+  
+  public function testItemTypeOrdinary()
+  {
+    $this->item->name = 'Test Item';
+    $this->assertEquals( $this->app->getItemType($this->item), 'ORDINARY');
+  }
+  
+  public function testItemTypeAgedBrie()
+  {
+    $this->item->name = 'Aged Brie';
+    $this->assertEquals( $this->app->getItemType($this->item), 'AGED BRIE');
+  }
+  
+  public function testItemTypeSulfuras()
+  {
+    $this->item->name = 'Sulfuras';
+    $this->assertEquals( $this->app->getItemType($this->item), 'SULFURAS');
+  }
+  
+  public function testItemTypeBackstagePasses()
+  {
+    $this->item->name = 'Backstage passes';
+    $this->assertEquals( $this->app->getItemType($this->item), 'BACKSTAGE PASSES');
+  }
 
 }

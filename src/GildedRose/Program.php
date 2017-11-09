@@ -157,7 +157,8 @@ class Program
         return true;
     }
     
-    public function UpdateBackstagePasses($item){
+    public function UpdateBackstagePasses($item)
+    {
         if ($item->quality < 50) {
             if ($item->sellIn > 10) {
                 $item->quality = $item->quality + 1;
@@ -171,5 +172,16 @@ class Program
         }
         $item->sellIn = $item->sellIn - 1;
         return true;
+    }
+    
+    public function getItemType($item)
+    {
+        $types = array( 'AGED BRIE', 'SULFURAS', 'BACKSTAGE PASSES' );
+        foreach ($types as $type) {
+            if (strpos(strtoupper($item->name), strtoupper($type))  !== false) {
+                return $type;  
+            }
+        }
+        return 'ORDINARY';
     }
 }
