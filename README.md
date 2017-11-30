@@ -69,3 +69,4 @@ useful to teach refactoring and testing of legacy code:
 - The method UpdateQuality() has a Cyclomatic Complexity of 19. The configured cyclomatic complexity threshold is 10.
 - The method UpdateQuality() has an NPath complexity of 211. The configured NPath complexity threshold is 200.
 
+export PATH=vendor/bin:$PATH
