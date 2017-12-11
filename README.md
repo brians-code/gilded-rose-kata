@@ -1,4 +1,4 @@
-[![Build Status](https://en.wikipedia.org/wiki/Test_card#/media/File:PM5544_with_non-PAL_signals.png)](http://52.54.31.155:8081/job/leadingre_com/)
+[![Build Status](http://52.54.31.155:8081/buildStatus/icon?job=leadingre_com)](http://52.54.31.155:8081/job/leadingre_com/)
 
 # Gilded Rose Kata for PHP
 
