@@ -1,4 +1,3 @@
-[![Build Status](http://52.54.31.155:8081/buildStatus/icon?job=leadingre_com)](http://52.54.31.155:8081/job/leadingre_com/)
 
 # Gilded Rose Kata for PHP
 
